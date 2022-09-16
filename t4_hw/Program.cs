@@ -17,9 +17,28 @@ Console.WriteLine("Введите размерность Z: ");
 int z = Convert.ToInt32(Console.ReadLine());
 int[,,] array3D = new int[x, y, z];
 FillArray3D(array3D);
+Console.WriteLine($"\nПолученный массив: ");
+PrintArray3D(array3D);
+Console.WriteLine($"\nВыведем массив построчно, добавляя индексы каждого элемента: ");
 PrintIndex(array3D);
 
-void PrintIndex(int[,,] arr)// вывод индексов элементов 3D массива
+void FillArray3D(int[,,] array3D)
+{
+    for (int i = 0; i < array3D.GetLength(0); i++)
+    {
+        for (int j = 0; j < array3D.GetLength(1); j++)
+        {
+            for (int k = 0; k < array3D.GetLength(2); k++)
+            {
+                array3D[i, j, k] = new Random().Next(10, 100);
+            }
+
+        }
+
+    }
+}
+
+void PrintIndex(int[,,] array3D)// вывод индексов элементов 3D массива
 {
     for (int i = 0; i < array3D.GetLength(0); i++)
     {
@@ -33,22 +52,17 @@ void PrintIndex(int[,,] arr)// вывод индексов элементов 3D
         }
     }
 }
-
-// Функция заполнения 3D массива не повторяющимеся числами
-void FillArray3D(int[,,] arr)
+void PrintArray3D(int[, ,] array3D)
 {
-    int count = 10;
-    for (int i = 0; i < arr.GetLength(0); i++)
+    for (int i = 0; i < array3D.GetLength(0); i++)
     {
-        for (int j = 0; j < arr.GetLength(1); j++)
+        for (int j = 0; j < array3D.GetLength(1); j++)
         {
-            for (int k = 0; k < arr.GetLength(2); k++)
-            {
-                arr[k, i, j] += count;
-                count += 3;
-            }
+             for(int k = 0; k < array3D.GetLength(2); k++) 
+             {
+                Console.Write(array3D[i, j, k] + " ");
+             }
         }
+        Console.WriteLine("");
     }
-}
-
-
+}  
