@@ -29,7 +29,8 @@ for (int i = 0; i < array.GetLength(0); i++)
     if (sum > minSum)
     {
         rowNumber++;
-        Console.WriteLine($"Cумма элементов строки №{rowNumber} равна {sum}");
+        Console.WriteLine($"Cумма элементов строки №{rowNumber} равна {sum}"); 
+        //без >, а только с < программа не показывает сумму всех строк, а лишь до момента, когда находит minSum (а он может быть и в первой строке)
     }
     if (sum < minSum)
     {
